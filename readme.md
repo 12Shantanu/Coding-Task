@@ -51,11 +51,35 @@ Certainly! Let's create API documentation detailing endpoints, request/response 
 
 4. **Database Setup**:
    - Create a PostgreSQL database locally with the specified schema.
+   - `Schema`
+   - 
+   - CREATE TABLE organizations (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE items (
+    id SERIAL PRIMARY KEY,
+    type VARCHAR(50) NOT NULL CHECK (type IN ('perishable', 'non-perishable')),
+    description VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE pricings (
+    organization_id INT REFERENCES organizations(id),
+    item_id INT REFERENCES items(id),
+    zone VARCHAR(50) NOT NULL,
+    base_distance_in_km INT NOT NULL CHECK (base_distance_in_km > 0),
+    km_price DECIMAL NOT NULL CHECK (km_price >= 0),
+    fix_price DECIMAL NOT NULL CHECK (fix_price >= 0),
+    PRIMARY KEY (organization_id, item_id, zone)
+);
+
+
    - Run the provided SQL script to create the required tables: `organizations`, `items`, and `pricings`.
    - Populate the tables with sample data as needed for testing.
 
 5. **Start the Server**:
-   Run `npm start` to start the Node.js server. The server will start listening on the specified port.
+   Run `npm run dev` to start the Node.js server. The server will start listening on the specified port.
 
 6. **Access API Documentation**:
    - Once the server is running, access the Swagger documentation at `http://localhost:<port>/api/v1/docs` to explore the API endpoints and test them interactively.
