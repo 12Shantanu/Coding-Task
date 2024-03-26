@@ -15,7 +15,7 @@ const options = {
         basePath: '/',
         servers: [
             {
-                url: "http://localhost:8000/",
+                url: "https://coding-task.onrender.com/",
             },
         ],
     },
