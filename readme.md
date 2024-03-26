@@ -47,7 +47,7 @@ Certainly! Let's create API documentation detailing endpoints, request/response 
    Run `npm install` to install all the project dependencies.
 
 3. **Environment Variables**:
-   Create a `.env` file in the project root directory and configure environment variables such as `PORT`, `CORS_ORIGIN`, `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD` for local development.
+   Create a `.env` file in the project root directory and configure environment variables such as `PORT`, `CORS_ORIGIN`, `HOST`, `POSTGRESQLPORT`, `DATABASE`, `USER`, `PASSWORD` for local development.
 
 4. **Database Setup**:
    - Create a PostgreSQL database locally with the specified schema.
